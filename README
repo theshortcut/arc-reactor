@@ -1,0 +1,3 @@
+bundle install
+bundle exec rackup
+load localhost:8585 in a browser
