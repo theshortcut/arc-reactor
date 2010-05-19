@@ -9,7 +9,7 @@
 @include blueprint-form;
 
 body {
-
+  background: #FFF;
   #container {
     @include container;
   }

@@ -1,3 +1,11 @@
+html, body { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+html { font-size: 100.01%; }
+div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, pre, a, abbr, acronym, address, code, del, dfn, em, img, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, tr { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+blockquote, q { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; quotes: "" ""; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+th, td, caption { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; text-align: left; font-weight: normal; vertical-align: middle; }
+table { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; border-collapse: separate; border-spacing: 0; vertical-align: middle; }
+a img { border: none; }
 body { line-height: 1.5; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; color: #333333; font-size: 75%; }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; color: #222222; }
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img { margin: 0; }
@@ -75,5 +83,6 @@ input.text, input.title, input[type=text], input[type=password], textarea, selec
 input.text:focus, input.title:focus, input[type=text]:focus, input[type=password]:focus, textarea:focus, select:focus { border: 1px solid #666666; }
 input.text, input.title, input[type=text], input[type=password] { width: 300px; }
 textarea { width: 390px; height: 250px; }
+body { background: #FFF; }
 body #container { width: 950px; margin: 0 auto; overflow: hidden; display: inline-block; }
 body #container { display: block; }

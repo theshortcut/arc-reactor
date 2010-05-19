@@ -5,6 +5,7 @@ class App < Sinatra::Base
   set :haml, { :format => :html5 }
   set :root, File.dirname(__FILE__)
   set :public, File.dirname(__FILE__) + '/static'
+  set :static, false
 
   register(Sinatra::Cache)
 
@@ -40,14 +41,32 @@ class App < Sinatra::Base
   get '/stylesheets/:name.css' do
     cache_expire "/stylesheets/#{params[:name]}.css"
     content_type 'text/css', :charset => 'utf-8'
-    sass(:"stylesheets/#{params[:name]}", Compass.sass_engine_options )
+    sass( :"stylesheets/#{params[:name]}", Compass.sass_engine_options )
   end
 
   get '/coffee/:name.js' do
     content_type :js
     file = File.new( File.join( options.public, 'coffee', "#{params[:name]}.js" ), "w+" )
-    file.write CoffeeScript.compile File.read(File.join( options.views, 'coffee', "#{params[:name]}.coffee" ))
+    file.write CoffeeScript.compile File.read( File.join( options.views, 'coffee', "#{params[:name]}.coffee" ) )
     file.close
+  end
+
+  get '/images/:name.jpg' do
+    content_type :jpg
+    filename = File.join options.public, 'images', "#{params[:name]}.jpg"
+    send_file filename
+  end
+
+  get '/images/:name.png' do
+    content_type :png
+    filename = File.join options.public, 'images', "#{params[:name]}.png"
+    send_file filename
+  end
+
+  get '/images/:name.gif' do
+    content_type :gif
+    filename = File.join options.public, 'images', "#{params[:name]}.gif"
+    send_file filename
   end
 
 end
