@@ -14,6 +14,10 @@ class App < Sinatra::Base
 
   configure do
     Compass.add_project_configuration(File.join(self.root, 'config', 'compass.config'))
+    mime_type :ttf,  'font/ttf'
+    mime_type :woff, 'font/x-woff'
+    mime_type :otf,  'font/otf'
+    mime_type :eot,  'application/vnd.ms-fontobject'
   end
 
   helpers do
@@ -51,21 +55,15 @@ class App < Sinatra::Base
     file.close
   end
 
-  get '/images/:name.jpg' do
-    content_type :jpg
-    filename = File.join options.public, 'images', "#{params[:name]}.jpg"
+  get '/images/:name.:format' do
+    content_type params[:format].to_sym
+    filename = File.join options.public, 'images', "#{params[:name]}.#{params[:format]}"
     send_file filename
   end
 
-  get '/images/:name.png' do
-    content_type :png
-    filename = File.join options.public, 'images', "#{params[:name]}.png"
-    send_file filename
-  end
-
-  get '/images/:name.gif' do
-    content_type :gif
-    filename = File.join options.public, 'images', "#{params[:name]}.gif"
+  get '/fonts/:name.:format' do
+    content_type params[:format].to_sym
+    filename = File.join options.public, 'fonts', "#{params[:name]}.#{params[:format]}"
     send_file filename
   end
 
